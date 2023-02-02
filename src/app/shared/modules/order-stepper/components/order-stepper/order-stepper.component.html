@@ -6,11 +6,13 @@
       <mat-form-field appearance="fill">
         <mat-label>Coffee</mat-label>
         <mat-select formControlName="coffeeList" multiple>
-          <mat-option *ngFor="let coffee of coffeeList" [value]="coffee.name">{{coffee.name}}</mat-option>
+          <ng-container *ngFor="let coffee of coffeeList$ | async" >
+          <mat-option [value]="coffee" [disabled]="!coffee.inStock">{{coffee.name}}</mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
       <div>
-        <button mat-button mat-raised-button (click)="setOrder(coffeesFormGroup.value)">Next</button>
+        <button mat-button mat-raised-button (click)="setOrder()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -23,9 +25,9 @@
             <mat-card-title>Order Summary</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <app-order-summary></app-order-summary>
+            <app-order-summary [dataSource]="selectedCoffees"></app-order-summary>
             <div class="summary">
-              <h4>Summary: $75</h4>
+              <h4>Summary: {{total | currency}}</h4>
             </div>
           </mat-card-content>
           <mat-card-actions>

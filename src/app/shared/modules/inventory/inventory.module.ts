@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { InventoryService } from "./services/inventory.service";
 
 
 
@@ -15,6 +16,7 @@ import { IngredientsComponent } from './ingredients/ingredients.component';
     MatTableModule,
     MatButtonModule
   ],
-  exports: [IngredientsComponent]
+  exports: [IngredientsComponent],
+  providers: [InventoryService]
 })
 export class InventoryModule { }

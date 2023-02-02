@@ -15,6 +15,6 @@ import { DrinkComponent } from './components/drink/drink.component';
     MatCardModule,
     MatGridListModule
   ],
-  exports: [DrinkComponent]
+  exports: [DrinkComponent],
 })
 export class BaristaShopDrinksModule { }

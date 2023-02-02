@@ -1,7 +1,7 @@
 <div class="items-container">
   <mat-grid-list cols="4" rowHeight="2:1">
-    <div class="list-holder" *ngFor="let coffee of coffeeList">
-      <mat-grid-tile *ngIf="coffee.inStock">
+    <div class="list-holder" *ngFor="let coffee of coffeeList$ | async">
+      <mat-grid-tile>
         <h1>{{coffee.name}}</h1>
         <img mat-card-image src="/assets/img/cup.jpg" alt="Coffee Cup">
       </mat-grid-tile>

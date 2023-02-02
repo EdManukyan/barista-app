@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from "@angular/forms";
 import { MatStepper } from "@angular/material/stepper";
-import { CoffeeList } from "../../../../../utils/interfaces/coffee-list";
+import { take } from "rxjs";
+import { CoffeeInterface } from "../../../../../utils/interfaces/coffee.interface";
+import { OrderService } from "../../services/order.service";
 
 interface Food {
   value: string;
@@ -17,48 +19,29 @@ interface Food {
 export class OrderStepperComponent {
 
   coffeesFormGroup = this._formBuilder.group({
-    coffeeList: ['', Validators.required]
+    coffeeList: [void 0, Validators.required]
   });
   isLinear = false;
   isLoading = false;
   orderCompleted = false;
+  total = 0;
 
-  coffeeList: CoffeeList[] = [
-    {
-      name: 'Coffee',
-      inStock: true
-    },
-    {
-      name: 'Decaf Coffee',
-      inStock: true
-    },
-    {
-      name: 'Caffe Latte',
-      inStock: true
-    },
-    {
-      name: 'Caffe Americano',
-      inStock: true
-    },
-    {
-      name: 'Caffe Mocha',
-      inStock: false
-    },
-    {
-      name: 'Cappuccino',
-      inStock: true
-    }
-  ];
+  coffeeList$ = this.orderService.selectCoffeeList;
+  selectedCoffees: (CoffeeInterface & {price?: number})[];
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(
+    private _formBuilder: FormBuilder,
+    private orderService: OrderService,
+    ) {
   }
 
-  @ViewChild('stepper') private myStepper: MatStepper | undefined;
+  @ViewChild('stepper') private myStepper: MatStepper;
 
   placeOrder () {
 
     this.isLoading = !this.isLoading;
     this.orderCompleted = !this.orderCompleted;
+    this.orderService.placeOrder(this.selectedCoffees);
 
     setTimeout(() => {
       this.isLoading = !this.isLoading;
@@ -68,12 +51,37 @@ export class OrderStepperComponent {
 
   }
 
-  setOrder (data: any) {
-    console.log(data);
-    if(data.coffeeList.length) {
+  setOrder () {
+    const data = this.coffeesFormGroup.value;
+    const selectedCoffees = data?.coffeeList as CoffeeInterface[];
+    if(selectedCoffees?.length) {
+      this.defineOrderCoffees(selectedCoffees);
       this.myStepper?.next();
     }
 
+  }
+
+  private defineOrderCoffees(coffeeList: CoffeeInterface[]): void {
+    this.orderService.selectIngredients
+      .pipe(take(1))
+      .subscribe(ingredients => {
+        this.total = 0;
+        this.selectedCoffees = [];
+        for (const coffee of coffeeList) {
+          let itemTotal = 0
+          for (const coffeeIngredient of coffee.ingredients) {
+
+            const ingredient = ingredients.find(item => item.id === coffeeIngredient.ingredient_id);
+            if (!ingredient) continue;
+            itemTotal += ingredient.price * coffeeIngredient.quantity;
+
+          }
+
+          const dataSourceItem = {...coffee, price:  itemTotal};
+          this.total += dataSourceItem.price;
+          this.selectedCoffees.push(dataSourceItem);
+        }
+      })
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="table-container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource$ | async" class="mat-elevation-z8">
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -22,7 +22,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef> Action </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" [disabled]="element.quantity === 10">{{element.action}}</button>
+        <button mat-raised-button color="primary" [disabled]="element.quantity === 10" (click)="restock(element.id)">{{element.action}}</button>
       </td>
     </ng-container>
 

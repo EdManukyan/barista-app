@@ -1,6 +1,6 @@
-export interface Ingredients {
+export interface IngredientsInterface {
+  id?: number;
   action?: string;
-  key?: string;
   name?: string;
   quantity?: number;
   price?: number;

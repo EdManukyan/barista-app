@@ -1,12 +1,5 @@
-import { Component } from '@angular/core';
-import { Ingredients } from "../../../../../utils/interfaces/ingerdients";
-
-const ingredientsData: Ingredients[] = [
-  {name: 'Coffee', price: 0.75},
-  {name: 'Espresso', price: 1.10},
-  {name: 'Cocoa', price: 0.90},
-  {name: 'Whipped Cream', price: 1.00},
-];
+import { Component, Input } from '@angular/core';
+import { CoffeeInterface } from "../../../../../utils/interfaces/coffee.interface";
 
 @Component({
   selector: 'app-order-summary',
@@ -15,7 +8,9 @@ const ingredientsData: Ingredients[] = [
 })
 export class OrderSummaryComponent {
 
+  @Input()  dataSource: (CoffeeInterface & {price?: number})[];
+
   displayedColumns: string[] = ['name', 'price'];
-  dataSource = ingredientsData;
+
 
 }

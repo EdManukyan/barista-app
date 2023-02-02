@@ -1,0 +1,100 @@
+{
+  "coffee": [
+    {
+      "id": 1,
+      "name": "Coffee",
+      "ingredients": [
+        {
+          "ingredient_id": 1,
+          "quantity" : 6
+        },
+        {
+          "ingredient_id": 3,
+          "quantity" : 1
+        },
+        {
+          "ingredient_id": 4,
+          "quantity" : 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Decaf      Coffee",
+      "ingredients": [
+        {
+          "ingredient_id": 2,
+          "quantity" : 3
+        },
+        {
+          "ingredient_id": 3,
+          "quantity" : 1
+        },
+        {
+          "ingredient_id": 4,
+          "quantity" : 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Caffe Latte",
+      "ingredients": [
+        {
+          "ingredient_id": 7,
+          "quantity" : 2
+        },
+        {
+          "ingredient_id": 5,
+          "quantity" : 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Caffe Americano",
+      "ingredients": [
+        {
+          "ingredient_id": 7,
+          "quantity" : 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Caffe Mocha",
+      "ingredients": [
+        {
+          "ingredient_id": 7,
+          "quantity" : 1
+        },
+        {
+          "ingredient_id": 8,
+          "quantity" : 1
+        },
+        {
+          "ingredient_id": 5,
+          "quantity" : 1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Cappuccino",
+      "ingredients": [
+        {
+          "ingredient_id": 7,
+          "quantity" : 2
+        },
+        {
+          "ingredient_id": 5,
+          "quantity" : 1
+        },
+        {
+          "ingredient_id": 6,
+          "quantity" : 1
+        }
+      ]
+    }
+  ]
+}
