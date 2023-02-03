@@ -19,7 +19,7 @@ export class OrderStepperComponent {
     coffeeList: [void 0, Validators.required]
   });
   coffeeList$ = this.orderService.selectCoffeeList;
-  isLinear = false;
+  isLinear = true;
   isLoading = false;
   orderCompleted = false;
   selectedCoffees: (CoffeeInterface & {price?: number})[];
@@ -41,6 +41,7 @@ export class OrderStepperComponent {
     setTimeout(() => {
       this.isLoading = !this.isLoading;
       this.orderCompleted = !this.orderCompleted;
+      this.isLinear = !this.isLinear;
       this.myStepper?.next();
     }, 3000);
 

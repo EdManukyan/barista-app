@@ -20,6 +20,25 @@
   margin-top: 15px;
   text-align: right;
 }
+
 mat-card-actions {
   justify-content: end;
+}
+
+.greets-card {
+  width: 100vh;
+  margin: 5px auto;
+  mat-card-content {
+    .greets {
+      text-align: center;
+      img {
+        width: 20vh;
+      }
+    }
+  }
+  mat-card-actions {
+    button {
+      margin: 5px;
+    }
+  }
 }
