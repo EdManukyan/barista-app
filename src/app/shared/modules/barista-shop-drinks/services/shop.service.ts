@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { select, Store } from "@ngrx/store";
-import { filter, Observable, take } from "rxjs";
-import { selectCoffeeState } from "../../../../state/selectors/barista.selector"
-import { COFFEE } from "../../../../state/actions"
-import { CoffeeInterface } from "../../../../utils/interfaces/coffee.interface";
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { filter, Observable, take } from 'rxjs';
+import { selectCoffeeState } from '../../../../state/selectors/barista.selector';
+import { COFFEE } from '../../../../state/actions';
+import { CoffeeInterface } from '../../../../utils/interfaces/coffee.interface';
 
 @Injectable({providedIn: 'root'})
 export class  ShopService {

@@ -1,6 +1,6 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { COFFEE, INVENTORY } from "../actions";
-import { BaristaStateInterface } from "../../utils/interfaces/barista-state.interface";
+import { Action, createReducer, on } from '@ngrx/store';
+import { COFFEE, INVENTORY } from '../actions';
+import { BaristaStateInterface } from '../../utils/interfaces/barista-state.interface';
 
 const _reducer = createReducer(
   {} as BaristaStateInterface,

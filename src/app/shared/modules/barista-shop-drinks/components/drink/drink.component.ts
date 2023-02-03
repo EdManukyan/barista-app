@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { map } from "rxjs";
-import { ShopService } from "../../services/shop.service";
+import { map } from 'rxjs';
+import { ShopService } from '../../services/shop.service';
 
 @Component({
   selector: 'app-drink',

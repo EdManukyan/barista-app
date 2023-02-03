@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CoffeeInterface } from "../../../../../utils/interfaces/coffee.interface";
+import { CoffeeInterface } from '../../../../../utils/interfaces/coffee.interface';
 
 @Component({
   selector: 'app-order-summary',
