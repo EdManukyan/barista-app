@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
-import { CoffeeInterface } from "../../utils/interfaces/coffee.interface";
-import { IngredientsInterface } from "../../utils/interfaces/ingredients.interface";
+import { CoffeeInterface } from "../../utils";
+import { IngredientsInterface } from "../../utils";
 import { COFFEE, INVENTORY } from "../actions";
 
 @Injectable()

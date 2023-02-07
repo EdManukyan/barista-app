@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from "@angular/router";
-import { BaristaShopComponent } from "./shared/modules/barista-shop/components/barista-shop/barista-shop.component";
 
 const routes: Routes = [
-  { path: 'home', component: BaristaShopComponent }
+  {
+    path: 'home',
+    loadChildren: () => import('./shared/modules/barista-shop/barista-shop.module').then(m => m.BaristaShopModule)
+  }
 ];
 
 @NgModule({
@@ -15,4 +17,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
