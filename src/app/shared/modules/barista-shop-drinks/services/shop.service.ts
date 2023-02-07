@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { filter, Observable, take } from 'rxjs';
 import { selectCoffeeState } from '../../../../state/selectors/barista.selector';
 import { COFFEE } from '../../../../state/actions';
-import { CoffeeInterface } from '../../../../utils/interfaces/coffee.interface';
+import { CoffeeInterface } from "../../../../utils";
 
 @Injectable({providedIn: 'root'})
 export class  ShopService {
@@ -26,7 +26,7 @@ export class  ShopService {
   }
 
   readData(): void {
-    return this.store.dispatch(COFFEE.READ())
+    return this.store.dispatch(COFFEE.READ());
   }
 
 }

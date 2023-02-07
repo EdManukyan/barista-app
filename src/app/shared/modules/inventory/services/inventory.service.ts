@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import {selectInventoryState} from "../../../../state/selectors/barista.selector"
-import {INVENTORY} from "../../../../state/actions"
+import { INVENTORY } from "../../../../state/actions"
 import { IngredientsInterface } from "../../../../utils/interfaces/ingredients.interface";
 
 @Injectable()

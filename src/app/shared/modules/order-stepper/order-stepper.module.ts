@@ -7,11 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
-import { BaristaShopDrinksModule } from '../barista-shop-drinks/barista-shop-drinks.module';
-import { OrderSummaryModule } from '../order-summary/order-summary.module';
+import { BaristaShopDrinksModule } from "@shared/modules/barista-shop-drinks";
+import { OrderSummaryModule } from "@shared/modules/order-summary";
 import { OrderStepperComponent } from './components/order-stepper/order-stepper.component';
-
-
 
 @NgModule({
   declarations: [OrderStepperComponent],

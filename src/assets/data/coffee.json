@@ -19,8 +19,22 @@
       ]
     },
     {
+      "id": 1,
+      "name": "Regular Coffee",
+      "ingredients": [
+        {
+          "ingredient_id": 1,
+          "quantity" : 3
+        },
+        {
+          "ingredient_id": 4,
+          "quantity" : 1
+        }
+      ]
+    },
+    {
       "id": 2,
-      "name": "Decaf      Coffee",
+      "name": "Decaf Coffee",
       "ingredients": [
         {
           "ingredient_id": 2,

@@ -12,6 +12,7 @@ import { NavbarModule } from './shared/modules/navbar/navbar.module';
 import { EFFECTS } from "./state/effects";
 import { REDUCERS } from "./state/reducers";
 import { BaristaReducer } from "./state/reducers/barista.reducer";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { BaristaReducer } from "./state/reducers/barista.reducer";
       }
     }),
     EffectsModule.forRoot(EFFECTS),
+    AppRoutingModule,
   ],
   providers: [],
   exports: [],

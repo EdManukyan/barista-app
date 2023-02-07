@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InventoryModule } from "../inventory/inventory.module";
-import { OrderStepperModule } from "../order-stepper/order-stepper.module";
+import { InventoryModule } from "@shared/modules/inventory";
+import { OrderStepperModule } from "@shared/modules/order-stepper";
 import { BaristaShopComponent } from "./components/barista-shop/barista-shop.component";
 
 
